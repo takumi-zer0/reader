@@ -13,9 +13,11 @@ app.get('/', (req, res) => {
 })
 
 var io = socketio.listen(4000);
+var number = 0;
 
 io.on("connection", socket => {
     console.log("hello")
+    socket.broadcast.emit('update', {number: number})
 
     socket.on("number", (data) => {
         console.log(data.num)
