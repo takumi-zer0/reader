@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 var io = socketio.listen(4000);
 
 io.on("connection", socket => {
-    console.log("helloe")
+    console.log("hello")
 
     socket.on("number", (data) => {
         console.log(data.num)
