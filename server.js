@@ -5,6 +5,10 @@ var socketio = require('socket.io')(http);
 
 app.set('view engine', 'ejs')
 
+const cors = require('cors')
+
+app.use(cors)
+
 app.get('/', (req, res) => {
     res.render('index')
 })
