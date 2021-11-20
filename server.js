@@ -24,6 +24,6 @@ io.on("connection", socket => {
 
 const PORT = 3000
 
-http.listen(PORT, function () {
+http.listen(process.env.PORT || 3000, function () {
     console.log('server listening. Port:' + PORT);
 });
