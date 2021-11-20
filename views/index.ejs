@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>test
+    </h1>
+
+    <h2 id="num">0</h2>
+    <div>
+        <button onclick=changeState(1) id="add">+</button>
+        <button onclick=changeState(0) id="sub">-</button>
+    </div>
+
+    <script>  
+    const socket = io("http://localhost:3000");
+    const num = document.getElementById('num')
+    const numlabel = document.getElementById('num')
+
+    function changeState(state) {
+        var number = num.innerText;
+        console.log(number)
+        if(state == 1) number++;
+        else number--;
+        num.innerText = number;
+        socket.emit('number', {num: number})
+    }
+
+    socket.on("update", (data) => {
+        num.innerText = data.number;
+    })
+
+    
+    </script>
+</body>
+</html>
