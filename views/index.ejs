@@ -12,14 +12,14 @@
     <h1>test
     </h1>
 
-    <h2 id="num">0</h2>
+    <h2 id="num"></h2>
     <div>
         <button onclick=changeState(1) id="add">+</button>
         <button onclick=changeState(0) id="sub">-</button>
     </div>
 
     <script>  
-    const socket = io("http://localhost:3000");
+    const socket = io("https://counter101010.herokuapp.com/");
     const num = document.getElementById('num')
     const numlabel = document.getElementById('num')
 
